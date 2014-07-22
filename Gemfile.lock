@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/bootstrap-ruby/rails-bootstrap-forms.git
+  revision: e21a746661d851e38b5f8545af1a2eaa81c4a27c
+  specs:
+    bootstrap_form (2.1.1)
+
+GIT
   remote: git://github.com/netzpirat/haml_coffee_assets.git
   revision: 1c5038429dbcf14151759913352376107d62c891
   specs:
@@ -274,6 +280,7 @@ DEPENDENCIES
   active_model_serializers
   awesome_print
   backbone-on-rails
+  bootstrap_form!
   capistrano-rails
   capybara
   carrierwave

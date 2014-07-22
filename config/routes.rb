@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       resources :products, only: :index
     end
   end
+  resources :prices
 
   root 'prices#index'
   get '*anything' => 'prices#index'

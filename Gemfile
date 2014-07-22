@@ -49,6 +49,7 @@ group :development, :test do
 end
 gem 'haml-rails'
 gem 'twitter-bootstrap-rails', branch: "bootstrap3", github: 'seyhunak/twitter-bootstrap-rails'
+gem 'bootstrap_form', github: 'bootstrap-ruby/rails-bootstrap-forms'
 gem 'backbone-on-rails'
 gem 'less-rails'
 gem 'haml_coffee_assets', github: 'netzpirat/haml_coffee_assets'
