@@ -48,7 +48,7 @@ group :development, :test do
   gem 'awesome_print'
 end
 gem 'haml-rails'
-gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails', branch: "bootstrap3", github: 'seyhunak/twitter-bootstrap-rails'
 gem 'backbone-on-rails'
 gem 'less-rails'
 gem 'haml_coffee_assets'
