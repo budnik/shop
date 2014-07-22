@@ -8,7 +8,7 @@ class CreateProducts < ActiveRecord::Migration
       t.string :model_name
       t.string :vendor
       t.string :stock
-      t.integer :prices, array: true, null: false, default: []
+      t.integer :p, :array => true
       t.integer :warranty
       t.references :price, index: true
 
