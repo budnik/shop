@@ -58,6 +58,7 @@ gem 'backbone-on-rails'
 gem 'less-rails'
 gem 'haml_coffee_assets'
 gem 'select2-rails'
+gem 'carrierwave'
 
 group :assets do
   gem 'therubyracer', :platforms => :ruby
