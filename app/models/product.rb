@@ -1,23 +1,14 @@
 class Product < ActiveRecord::Base
   belongs_to :price
+  validates_presence_of :name
+  validates_presence_of :category
+  validates_presence_of :code
 
-  def retail_price=(price)
-    self[:prices] ||= []
-    prices[0]=price
-  end
-
-  def wholesale=(price)
-    self[:prices] ||= []
-    prices[1]=price
-  end
-
-  def dealer_price=(price)
-    self[:prices] ||= []
-    prices[2]=price
-  end
-
-  def partner_price=(price)
-    self[:prices] ||= []
-    prices[3]=price
+  %i[retail_price wholesale dealer_price partner_price].each_with_index do |name, i|
+    define_method("#{name}=") do |price|
+      self[:prices] ||= []
+      prices[i]=(price*100).to_i rescue nil
+      prices_will_change!
+    end
   end
 end

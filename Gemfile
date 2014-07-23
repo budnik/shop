@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 gem 'pg'
+gem 'dotenv-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
 # Use SCSS for stylesheets
@@ -45,7 +46,6 @@ group :test do
 end
 
 group :development, :test do
-  gem 'sqlite3'
   gem 'pry'
   gem 'pry-rescue'
   gem 'awesome_print'

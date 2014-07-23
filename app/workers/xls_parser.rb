@@ -2,7 +2,8 @@ class XLSParser
   def perform(price_id)
     if p = Price.find(price_id)
         xls = Roo::Spreadsheet.open p.file.path
-        data = xls.parse(mapping)
+        header, *data = xls.parse(mapping)
+        products = Product.where(price_id: price_id).create(data)
       binding.pry
     end
   end

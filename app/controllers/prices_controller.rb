@@ -53,6 +53,6 @@ class PricesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def price_params
-      params[:price].permit(:file)
+      params.require(:price).permit(:file) if params[:price]
     end
 end
