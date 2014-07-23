@@ -37,7 +37,8 @@ CREATE TABLE prices (
     id integer NOT NULL,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
-    file character varying(255)
+    file character varying(255),
+    state character varying(255)
 );
 
 
@@ -164,4 +165,6 @@ INSERT INTO schema_migrations (version) VALUES ('20140722115014');
 INSERT INTO schema_migrations (version) VALUES ('20140722115812');
 
 INSERT INTO schema_migrations (version) VALUES ('20140722174411');
+
+INSERT INTO schema_migrations (version) VALUES ('20140723182326');
 

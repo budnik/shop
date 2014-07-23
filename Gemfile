@@ -29,6 +29,7 @@ gem 'spreadsheet'
 
 gem 'puma'
 gem 'sidekiq'
+gem 'state_machine'
 
 # Use Capistrano for deployment
 gem 'capistrano-rails', group: :development
