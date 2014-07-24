@@ -50,6 +50,7 @@ group :development, :test do
   gem 'pry'
   gem 'pry-rescue'
   gem 'awesome_print'
+  gem 'quiet_assets'
 end
 gem 'haml-rails'
 gem 'twitter-bootstrap-rails', branch: "bootstrap3", github: 'seyhunak/twitter-bootstrap-rails'

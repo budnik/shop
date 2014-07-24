@@ -21,3 +21,9 @@
 
 en:
   hello: "Hello world"
+  datetime:
+    time_ago_in_words:
+      x_days:
+        one: today
+        other: ! '%{count} days ago'
+ 

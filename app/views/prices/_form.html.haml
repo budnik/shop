@@ -5,7 +5,7 @@
       %ul
         - @price.errors.full_messages.each do |msg|
           %li= msg
-  = f.file_field :file, wrapper_class: 'btn-file btn', label: :upload
+  = f.file_field :file, wrapper_class: 'btn-file btn', label: 'Select file'
 
   .actions
-    = f.submit 'Save'
+    = f.submit 'Upload'

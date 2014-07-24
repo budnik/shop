@@ -3,7 +3,7 @@ class PricesController < ApplicationController
 
   # GET /prices
   def index
-    @prices = Price.all
+    @prices = Price.order(:created_at).all
   end
 
   # GET /prices/1
@@ -24,7 +24,7 @@ class PricesController < ApplicationController
     @price = Price.new(price_params)
 
     if @price.save
-      redirect_to @price, notice: 'Price was successfully created.'
+      redirect_to prices_path, notice: 'Price was successfully created.'
     else
       render :new
     end

@@ -1,11 +1,21 @@
 class XLSParser
+  include Sidekiq::Worker
+  sidekiq_options :retry => 1
+  
   def perform(price_id)
-    if p = Price.find(price_id)
-        xls = Roo::Spreadsheet.open p.file.path
-        header, *data = xls.parse(mapping)
-        products = Product.where(price_id: price_id).create(data)
-      binding.pry
+    p = Price.find(price_id)
+    p.processing_started
+    xls = Roo::Spreadsheet.open p.file.path
+    header, *data = xls.parse(mapping)
+    products = Product.where(price_id: price_id).create(data)
+
+    if products.any? &:persisted?
+      p.processing_finished
+    else
+      p.processing_failed
     end
+  rescue StandardError => e
+    p.try :processing_failed
   end
 
   private

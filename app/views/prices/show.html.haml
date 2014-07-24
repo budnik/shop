@@ -2,6 +2,20 @@
 
 %p= link_to :file, @price.file_url
 
-= link_to 'Edit', edit_price_path(@price)
-\|
-= link_to 'Back', prices_path
+
+%table.table.table-striped.table-bordered.color2
+  %thead
+    %tr
+      %th name
+      %th p1
+      %th p2
+      %th p3
+      %th p3
+  %tbody
+    - @price.products.each do |product|
+      %tr
+        %td= product.name
+        - product.prices.each do |price|
+          %td= number_to_currency(0.01*price, precision: 2) if price
+
+= link_to :back
