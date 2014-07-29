@@ -51,7 +51,7 @@ gem 'haml-rails'
 gem 'twitter-bootstrap-rails', branch: "bootstrap3", github: 'seyhunak/twitter-bootstrap-rails'
 gem 'backbone-on-rails'
 gem 'less-rails'
-gem 'haml_coffee_assets'
+gem 'haml_coffee_assets', github: 'netzpirat/haml_coffee_assets'
 gem 'select2-rails'
 gem 'carrierwave'
 

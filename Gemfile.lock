@@ -1,4 +1,13 @@
 GIT
+  remote: git://github.com/netzpirat/haml_coffee_assets.git
+  revision: 1c5038429dbcf14151759913352376107d62c891
+  specs:
+    haml_coffee_assets (1.16.0)
+      coffee-script (~> 2.0)
+      sprockets (~> 2.0)
+      tilt (~> 1.1)
+
+GIT
   remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
   revision: 1d93c5a77049b3d21d17c847ad0531d7714fa229
   branch: bootstrap3
@@ -124,10 +133,6 @@ GEM
       activesupport (>= 4.0.1)
       haml (>= 3.1, < 5.0)
       railties (>= 4.0.1)
-    haml_coffee_assets (1.16.0)
-      coffee-script (~> 2.0)
-      sprockets (~> 2.0)
-      tilt (~> 1.1)
     hike (1.2.3)
     i18n (0.6.11)
     interception (0.5)
@@ -277,7 +282,7 @@ DEPENDENCIES
   database_cleaner
   factory_girl_rails
   haml-rails
-  haml_coffee_assets
+  haml_coffee_assets!
   jquery-rails
   json_spec
   less-rails
