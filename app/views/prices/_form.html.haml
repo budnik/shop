@@ -1,11 +1,4 @@
 = bootstrap_form_for @price do |f|
-  - if @price.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@price.errors.count, "error")} prohibited this price from being saved:"
-      %ul
-        - @price.errors.full_messages.each do |msg|
-          %li= msg
   = f.file_field :file, wrapper_class: 'btn-file btn', label: 'Select file'
-
   .actions
     = f.submit 'Upload'
