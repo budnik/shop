@@ -5,7 +5,12 @@ class XLSParser
   def perform(price_id)
     p = Price.find(price_id)
     p.processing_started
-    xls = Roo::Spreadsheet.open p.file.path
+
+    #fixess non ascii filename
+    extension = File.extname p.file.path
+ 
+    xls = Roo::Spreadsheet.open p.file.path, extension: extension
+
     header, *data = xls.parse(mapping)
     products = Product.where(price_id: price_id).create(data)
 

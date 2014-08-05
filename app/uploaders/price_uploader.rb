@@ -14,6 +14,10 @@ class PriceUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
+  def filename
+    original_filename.gsub /[^[:word:].]+/, ?_
+  end
+
   def extension_white_list
     %w(xls xlsx)
   end
