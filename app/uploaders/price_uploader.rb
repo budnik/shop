@@ -15,7 +15,7 @@ class PriceUploader < CarrierWave::Uploader::Base
   end
 
   def filename
-    original_filename.gsub /[^[:word:].]+/, ?_
+    original_filename.try :gsub, /[^[:word:].]+/, ?_
   end
 
   def extension_white_list

@@ -1,7 +1,6 @@
-%h1 Editing price
+%h1 Reupload price
 
-= render 'form'
-
-= link_to 'Show', @price
-\|
-= link_to 'Back', prices_path
+.col-xs-2
+  = render 'form'
+.col-xs-2
+  = link_to 'Cancel', :back, class: 'btn'

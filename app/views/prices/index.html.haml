@@ -8,19 +8,22 @@
       %th state
       %th products
       %th
-      %th
-      %th
   %tbody
     - @prices.each do |price|
       %tr
-        %td= link_to price.name, price.file_url
+        %td= link_to price.name, price
         %td
           = time_ago_in_words price.created_at
           ago
         %td= price.state
-        %td= price.products.count
-        %td= link_to 'Show', price
-        %td= link_to 'Edit', edit_price_path(price)
-        %td= link_to 'Destroy', price, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to price.products.count, price, class: :badge
+        %td
+          .btn-group.btn-group-xs
+            = link_to edit_price_path(price), class: :btn do
+              %span.glyphicon.glyphicon-sort
+            = link_to price, :method => :delete, class: 'btn btn-inverse', :data => { :confirm => 'Are you sure?' } do
+              %span.text-danger.glyphicon.glyphicon-fire
 
-= link_to 'New Price', new_price_path
+= link_to new_price_path, class: :btn do
+  New Price
+  %span.glyphicon.glyphicon-log-in

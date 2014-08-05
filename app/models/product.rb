@@ -14,6 +14,6 @@ class Product < ActiveRecord::Base
   end
 
   def prices_presence
-    prices.count == 4 and prices.all?{|p| p > 0}
+    prices.count == 4 and prices.all?{|p| p.to_i > 0}
   end
 end

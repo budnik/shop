@@ -19,8 +19,8 @@ class XLSParser
     else
       p.processing_failed
     end
-  rescue StandardError => e
-    p.try :processing_failed
+  # rescue StandardError => e
+  #   p.try :processing_failed
   end
 
   private

@@ -1,8 +1,10 @@
-%p#notice= notice
-
-%p= link_to :file, @price.file_url
-
-
+%p
+  %h1
+    = @price.name
+    .small
+      uploaded
+      = distance_of_time_in_words_to_now @price.updated_at
+      ago
 %table.table.table-striped.table-bordered.color2
   %thead
     %tr
@@ -18,4 +20,10 @@
         - product.prices.each do |price|
           %td= number_to_currency(0.01*price, precision: 2) if price
 
-= link_to :back
+%p
+  = link_to prices_path, class: :btn do
+    %span.glyphicon.glyphicon-arrow-left
+  
+  = link_to @price.file_url, class: :btn do
+    %span.glyphicon.glyphicon-download-alt
+    = @price.file.file.extension

@@ -1,5 +1,3 @@
 = bootstrap_form_for @price, inline_errors: false do |f|
   = f.errors_on :file
-  = f.file_field :file, wrapper_class: 'btn-file btn', label: 'Select file'
-  .actions
-    = f.submit 'Upload'
+  = f.file_field :file, wrapper_class: 'btn-file btn color2a', label: 'Select file', onchange: 'javascript:this.form.submit();'
