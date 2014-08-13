@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :prices do
       resources :products, only: :index
     end
+    resource :order, only: :create
   end
 
   root 'prices#index'
