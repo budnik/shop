@@ -1,3 +1,2 @@
 class Shop.Views.ProductsIndex extends Backbone.View
-
-  template: JST['products/index']
+  template: JST['products/show']

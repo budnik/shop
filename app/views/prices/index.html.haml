@@ -1,6 +1,6 @@
 %h1 Listing prices
 
-%table.table.table-striped.table-bordered.color2
+%table.table.table-striped.table-bordered.color2#prices
   %thead
     %tr
       %th name
@@ -10,12 +10,12 @@
       %th
   %tbody
     - @prices.each do |price|
-      %tr
+      %tr{class: [price.state, :price], id: "price_#{price.id}"}
         %td= link_to price.name, price
         %td
           = time_ago_in_words price.created_at
           ago
-        %td= price.state
+        %td= state_icon price
         %td= link_to price.products.count, price, class: :badge
         %td
           .btn-group.btn-group-xs

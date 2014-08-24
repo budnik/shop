@@ -3,7 +3,9 @@ window.Shop =
   Collections: {}
   Views: {}
   Routers: {}
-  initialize: -> console.log 'Hello from Backbone!'
-
+  initialize: ->
+    new Shop.Routers.Price
+    Backbone.history.start pushState: true
+    
 $(document).ready ->
   Shop.initialize()

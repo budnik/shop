@@ -4,6 +4,6 @@ class OrderCreated < ActionMailer::Base
   
 
   def notification(id)
-    mail subject: 'order received', body:id end
+    mail subject: 'order received', body:id
   end
 end

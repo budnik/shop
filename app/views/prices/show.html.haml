@@ -1,3 +1,4 @@
+= javascript_tag "products=" + @price.products.to_json
 %p
   %h1
     = @price.name
@@ -5,18 +6,22 @@
       uploaded
       = distance_of_time_in_words_to_now @price.updated_at
       ago
-%table.table.table-striped.table-bordered.color2
+%table.table.table-striped.table-bordered.color2#price
   %thead
     %tr
       %th name
+      %th action
       %th p1
       %th p2
       %th p3
       %th p3
   %tbody
     - @price.products.each do |product|
-      %tr
+      %tr{id: "product_#{product.id}"}
         %td= product.name
+        %td
+          %a.btn.btn-xs.color2c.cart
+            %span.glyphicon.glyphicon-shopping-cart
         - product.prices.each do |price|
           %td= number_to_currency(0.01*price, precision: 2) if price
 
