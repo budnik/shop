@@ -1,0 +1,10 @@
+.panel-body.text-center.color4b
+  Товаров:
+  =@length
+  |
+  Сумма:
+  =@summ()
+.panel-footer
+  .btn-group.pull-right
+    .btn.btn-xs.color3c Просмотреть
+    .btn.btn-xs.btn-inverse Заказать

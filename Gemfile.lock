@@ -92,19 +92,29 @@ GEM
       activesupport (>= 3.2.0)
       json (>= 1.7)
       mime-types (>= 1.16)
+    ceaser-easing (0.7)
+      compass (>= 0.12.2)
+      rake
     celluloid (0.15.2)
       timers (~> 1.1.0)
+    chunky_png (1.3.1)
     cliver (0.3.2)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
+    coffee-rails-source-maps (1.4.0)
+      coffee-script-source (>= 1.6.1)
     coffee-script (2.3.0)
       coffee-script-source
       execjs
     coffee-script-source (1.7.1)
     colorize (0.7.3)
     commonjs (0.2.7)
+    compass (0.12.7)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.2.19)
     connection_pool (2.0.0)
     cucumber (1.3.15)
       builder (>= 2.1.2)
@@ -138,6 +148,7 @@ GEM
     factory_girl_rails (4.4.1)
       factory_girl (~> 4.4.0)
       railties (>= 3.0.0)
+    fssm (0.2.10)
     gherkin (2.12.2)
       multi_json (~> 1.3)
     haml (4.0.5)
@@ -312,7 +323,9 @@ DEPENDENCIES
   capistrano-rails
   capybara
   carrierwave
+  ceaser-easing
   coffee-rails (~> 4.0.0)
+  coffee-rails-source-maps
   cucumber-rails
   database_cleaner
   dotenv-rails

@@ -3,5 +3,6 @@ class Shop.Views.Product extends Backbone.View
     'click .btn': 'addToCart'
 
   addToCart: ()->
-    window.order.add @model
-    debugger
+    order_product = @model.toJSON()
+    delete order_product.id
+    window.order.add order_product

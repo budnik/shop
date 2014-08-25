@@ -5,6 +5,7 @@ gem 'dotenv-rails'
 gem 'rails', '4.1.4'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
+gem 'ceaser-easing'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -51,6 +52,7 @@ group :development, :test do
   gem 'pry-rescue'
   gem 'awesome_print'
   gem 'quiet_assets'
+  gem 'coffee-rails-source-maps'
 end
 gem 'haml-rails'
 gem 'twitter-bootstrap-rails', branch: "bootstrap3", github: 'seyhunak/twitter-bootstrap-rails'
