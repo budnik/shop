@@ -1,6 +1,8 @@
 class Shop.Views.OrdersIndex extends Backbone.View
   el: $('#cart')
   template: JST['cart/index']
+  events:
+    'click #purchase': 'sync'
 
   initialize: ->
     @listenTo @collection, 'add', @render 
@@ -9,3 +11,6 @@ class Shop.Views.OrdersIndex extends Backbone.View
     @$el.html @template @collection
     @$el.addClass 'visible'
     @
+
+  sync: ->
+    @collection.sync()

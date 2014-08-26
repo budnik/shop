@@ -7,4 +7,4 @@
 .panel-footer
   .btn-group.pull-right
     .btn.btn-xs.color3c Просмотреть
-    .btn.btn-xs.btn-inverse Заказать
+    #purchase.btn.btn-xs.btn-inverse Заказать
