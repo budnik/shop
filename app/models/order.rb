@@ -4,6 +4,6 @@ class Order < ActiveRecord::Base
 
   private
   def send_email
-    OrderSender.perform id
+    OrderSender.perform_async id
   end
 end

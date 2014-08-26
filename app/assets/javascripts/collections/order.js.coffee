@@ -3,7 +3,7 @@ class Shop.Collections.Order extends Backbone.Collection
   model: Shop.Models.Product
  
   initialize: ->
-    new Shop.Views.OrdersIndex collection: @
+    @view = new Shop.Views.OrdersIndex collection: @
     # this.on "add", -> $("#cart").addClass('visible')
 
   summ: ->
@@ -12,7 +12,15 @@ class Shop.Collections.Order extends Backbone.Collection
     "$" + (0.01 * @reduce summer, 0)
 
   sync: ->
-    $.post @url, @toJSON
+    $.post @url, @toJSON(), (r)=>
+      @view.$('.panel-body').html(r["message"])
+      @view.$('.panel-footer').html("")
+
+
+  toJSON: ->
+    order:
+      product_ids: @pluck "original_id"
+      price_id: @first().get("price_id")
 
   clone_add: (m)->
     product = m.toJSON()
