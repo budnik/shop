@@ -4,6 +4,8 @@ class OrderCreated < ActionMailer::Base
   
 
   def notification(id)
-    mail subject: 'order received', body: Order.find(id).to_json
+    @order = Order.find(id)
+    @products = Product.find(@order.product_ids)
+    mail subject: 'order received'
   end
 end

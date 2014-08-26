@@ -1,0 +1,29 @@
+!!! 5
+%html(lang="en")
+  %head
+    %meta(charset="utf-8" content='text/html; charset=UTF-8' http-equiv='Content-Type')
+  %body
+    %html
+      %table
+        %thead
+          %tr
+            %th name
+            %th count
+            %th price
+
+        %tbody
+          - sum = 0
+          - @products.each do |p|
+            -count = @order.product_ids.count p.id
+            -price = p.prices[0]
+            %tr
+              %td= p.name
+              %td= count
+              %td
+                $
+                = 0.01*price
+              - sum+= count*price
+      %p
+        Сумма: $
+        = 0.01 * sum
+
