@@ -26,6 +26,14 @@ git '/opt/apps/'+app do
   revision 'master'
 end
 
+template '/opt/apps/'+app+'/.env' do
+  source 'env.erb'
+  variables pairs: {
+    DATABASE_URL: "postgresql://ubuntu:n0pass@127.1:5432/hello?pool=10&reaping_frequency=10",
+    REDIS_URL: "redis://127.1:6379/4"
+  }
+end
+
 template '/etc/local/puma.conf' do
   cookbook 'chef-puma'
   source 'upstart.erb'
