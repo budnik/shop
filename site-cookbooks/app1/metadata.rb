@@ -8,7 +8,7 @@ version          '0.1.0'
 
 depends 'chef-puma'
 depends "chef-solo-search"
-depends "users"
+depends "user"
 depends "apt"
 depends "postgresql"
 depends "postgresql"

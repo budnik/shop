@@ -1,0 +1,5 @@
+{
+  "id": "ubuntu",
+  "ssh_keys": ["ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDgpv4ZIZwvMqRZyBydWRSlAjDKyWbmbn3e6c2A7zpUufGKoYe59giAlcVnZVUmbU8NE0VJf31Aubc80Z6mki2sh57KN1sL9wz2LF255QcDctVgAGTn5vcwz2TVSoTLf+ug3KUtuznUWBx2lGLVCZTdZq8PdSHVr+w/G30BlRKjYJ9oFLbDh85FbX4pbuMp1R3DwBg0R1MmgJ6kT8Xshc8YJdWm8ZbLh/piqGlkq4wR9j8BdcqqaEjDIlCd3eWcf4jKAPCMW+QIo+jWF2VpYeawHdrLAmWwItZb0HKqaSTihi0Zv0J952rD7xEBORioIlRkLfyL1veyKD6HAjDeSqFR dmbu@ciklum.net"],
+  "groups": ["sysadmin"]
+}

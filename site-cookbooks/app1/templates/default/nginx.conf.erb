@@ -1,0 +1,44 @@
+upstream my_app {
+  server unix:///<%= @working_dir %>/tmp/puma.sock;
+}
+ 
+server {
+  listen 80 default deferred;
+
+  # ~2 seconds is often enough for most folks to parse HTML/CSS and
+  # retrieve needed images/icons/frames, connections are cheap in
+  # nginx so increasing this is generally safe...
+  keepalive_timeout 5;
+ 
+  # path for static files
+  root <%= @working_dir %>/public;
+  access_log <%= @working_dir %>/log/production.access.log;
+  error_log <%= @working_dir %>/log/production.error.log info;
+
+ location / {
+      try_files $uri $uri/index.html $uri.html @my_app;
+    }
+
+  location @my_app {
+    proxy_read_timeout 300;
+    proxy_connect_timeout 300;
+    proxy_redirect off;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_pass http://my_app;
+  }
+
+  location ~* ^/assets/ {
+    # Per RFC2616 - 1 year maximum expiry
+    expires 1y;
+    add_header Cache-Control public;
+
+    # Some browsers still send conditional-GET requests if there's a
+    # Last-Modified header or an ETag header even if they haven't
+    # reached the expiry date sent in the Expires header.
+    add_header Last-Modified "";
+    add_header ETag "";
+    break;
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "run_list": [
+
+    "recipe[sudo]",
+    "recipe[apt]",
+    "recipe[build-essential]",
+    "recipe[ohai]",
+    "recipe[git]",
+
+    // If you want to use postgres, leave this as it is.
+    // Otherwise, comment the three lines below.
+
+    // "recipe[nginx::apps]",
+    // "recipe[ruby]",
+    "recipe[redisio]",
+    "recipe[redisio::enable]",
+    "recipe[user::data_bag]",
+    "recipe[app1]"
+  ],
+
+
+  // You must define who’s going to be the user(s) you’re going to use for deploy.
+  "authorization": {
+    "sudo": {
+      "users":        ["ubuntu"],
+      "passwordless": true
+    }
+  },
+  "users":["ubuntu"],
+  // You must define the username and password for postgres.
+  // Comment if you're not going to use it.
+  "postgresql": {
+    "users": [
+      {
+        "username"  : "ubuntu",
+        "password"  : "n0pass",
+        "superuser" : true,
+        "createdb"  : true,
+        "login"     : true
+      }
+    ],
+    "databases": [
+      {
+        "name": "hello",
+        "owner": "ubuntu",
+        "template": "template0",
+        "encoding": "utf8",
+        "locale": "en_US.UTF8",
+        "extensions": ["hstore"]
+      }
+    ],
+    // This is for postgres to trust in local connections. You should leave this as is
+    // if you’re not sure what you’re doing.
+    "pg_hba": [
+      "local  all   all                 trust",
+      "host   all   all   127.0.0.1/32  md5",
+      "host   all   all   ::1/128       md5"
+    ]
+  },
+    "tz": "Etc/UTC",
+    "authorization": {
+      "sudo": {
+        "users": [ "ubuntu" ],
+        "passwordless": "true",
+        "sudoers_defaults": [ "env_reset", "!secure_path" ]
+      }
+    },
+    "openssh": {
+      "server": {
+        "password_authentication": "no"
+      },
+      "client": {
+        "*": {
+          "strict_host_key_checking": "no",
+          "user_known_hosts_file": "/dev/null"
+        }
+      }
+    },
+  // If you're going to use mysql, comment out the following lines.
+  // "mysql": {
+  //   "server_root_password"  : "asdf1234",
+  //   "server_repl_password"  : "asdf1234",
+  //   "server_debian_password": "asdf1234",
+  //   "server": {
+  //     "packages": ["mysql-server", "libmysqld-dev"]
+  //   }
+  // },
+
+  // You must specify the ubuntu distribution by it’s name to configure the proper version
+  // of nginx, otherwise it’s going to fail.
+  "nginx": {
+    "distribution"  : "trusty",
+    "components"    : ["main"]
+  },
+
+  "rvm": {
+    "default_ruby": "ruby-2.1.2",
+    "group_users": ["ubuntu"],
+    "global_gems": [{
+      "name": "bundler"
+    },{
+      "name": "rake"
+    }]
+  }
+}

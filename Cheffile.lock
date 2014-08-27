@@ -17,9 +17,7 @@ SITE
       windows (>= 0.0.0)
       yum (~> 3.0)
       yum-epel (>= 0.0.0)
-    install_from (3.0.4)
     logrotate (1.6.0)
-    metachef (3.0.4)
     monit (0.7.1)
     nginx (2.7.4)
       apt (~> 2.2)
@@ -31,21 +29,27 @@ SITE
     ohai (2.0.1)
     openssl (2.0.0)
       chef-sugar (>= 0.0.0)
-    redis (3.0.4)
-      install_from (>= 0.0.0)
-      metachef (>= 0.0.0)
-      runit (>= 0.0.0)
     rsyslog (1.12.2)
     runit (1.5.10)
       build-essential (>= 0.0.0)
       yum (~> 3.0)
       yum-epel (>= 0.0.0)
     sudo (2.6.0)
+    ulimit (0.3.2)
     windows (1.32.3)
       chef_handler (>= 0.0.0)
     yum (3.2.2)
     yum-epel (0.3.6)
       yum (~> 3.0)
+
+GIT
+  remote: git://github.com/brianbianco/redisio.git
+  ref: master
+  sha: 5ba4ac430caee386327dee4052880bed83691864
+  specs:
+    redisio (2.2.3)
+      build-essential (>= 0.0.0)
+      ulimit (>= 0.1.2)
 
 GIT
   remote: git://github.com/fnichol/chef-rvm.git
@@ -73,11 +77,11 @@ GIT
       monit (>= 0.0.0)
 
 GIT
-  remote: git@github.com:sethvargo-cookbooks/users.git
+  remote: git@github.com:fnichol/chef-user.git
   ref: master
-  sha: fca9a42ab44dadbb98432c931dfc6c049ecc23ce
+  sha: 62e3e2b6848445f80ba1ff22bd82c57c63fa72e5
   specs:
-    users (1.7.1)
+    user (0.3.1)
 
 DEPENDENCIES
   apt (>= 0)
@@ -89,8 +93,8 @@ DEPENDENCIES
   ohai (>= 0)
   openssl (>= 0)
   postgresql (>= 0)
-  redis (>= 0)
+  redisio (>= 0)
   rvm (>= 0)
   sudo (>= 0)
-  users (>= 0)
+  user (>= 0)
 
