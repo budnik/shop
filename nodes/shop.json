@@ -15,7 +15,8 @@
     "recipe[redisio]",
     "recipe[redisio::enable]",
     "recipe[user::data_bag]",
-    "recipe[app1]"
+    "recipe[app1]",
+    "recipe[phantomjs::default]"
   ],
 
 
