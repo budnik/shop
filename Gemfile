@@ -54,8 +54,9 @@ group :development, :test do
   gem 'quiet_assets'
   gem 'coffee-rails-source-maps'
 end
+
 gem 'haml-rails'
-gem 'twitter-bootstrap-rails', branch: "bootstrap3", github: 'seyhunak/twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails'
 gem 'bootstrap_form', github: 'bootstrap-ruby/rails-bootstrap-forms'
 gem 'backbone-on-rails'
 gem 'less-rails'
@@ -66,5 +67,3 @@ gem 'carrierwave'
 group :assets do
   gem 'therubyracer', :platforms => :ruby
 end
-
-
