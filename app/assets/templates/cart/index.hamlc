@@ -6,5 +6,5 @@
   =@summ()
 .panel-footer
   .btn-group.pull-right
-    .btn.btn-xs.color3c Просмотреть
+    .btn.btn-xs.color3c.pb-pattern.o-lines-medium.disabled Просмотреть
     #purchase.btn.btn-xs.btn-inverse Заказать
