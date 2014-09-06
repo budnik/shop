@@ -3,7 +3,7 @@ class Shop.Collections.Order extends Backbone.Collection
   model: Shop.Models.Product
  
   initialize: ->
-    @view = new Shop.Views.OrdersIndex collection: @
+    @view = new Shop.Views.Cart collection: @
     # this.on "add", -> $("#cart").addClass('visible')
 
   summ: ->
